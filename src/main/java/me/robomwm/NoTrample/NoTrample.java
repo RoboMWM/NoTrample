@@ -1,11 +1,11 @@
 package me.robomwm.NoTrample;
 
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -22,6 +22,9 @@ public class NoTrample extends JavaPlugin implements Listener
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     void onTrampleBlock(EntityChangeBlockEvent event)
     {
+        if (event.getEntityType() != EntityType.PLAYER)
+            return;
+        
         Material newBlock = event.getTo();
         Material oldBlock = event.getBlock().getType();
         if (newBlock == Material.DIRT && oldBlock == Material.SOIL)
