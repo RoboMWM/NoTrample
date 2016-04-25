@@ -24,7 +24,7 @@ public class NoTrample extends JavaPlugin implements Listener
     {
         if (event.getEntityType() != EntityType.PLAYER)
             return;
-        
+
         Material newBlock = event.getTo();
         Material oldBlock = event.getBlock().getType();
         if (newBlock == Material.DIRT && oldBlock == Material.SOIL)
