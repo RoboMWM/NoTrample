@@ -1,0 +1,4 @@
+name: NoTrample
+author: RoboMWM
+version: ${project.version}
+main: me.robomwm.NoTrample.NoTrample
