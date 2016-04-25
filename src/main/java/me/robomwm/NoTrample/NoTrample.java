@@ -22,12 +22,11 @@ public class NoTrample extends JavaPlugin implements Listener
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     void onTrampleBlock(EntityChangeBlockEvent event)
     {
+        //We only care about players
         if (event.getEntityType() != EntityType.PLAYER)
             return;
-
-        Material newBlock = event.getTo();
-        Material oldBlock = event.getBlock().getType();
-        if (newBlock == Material.DIRT && oldBlock == Material.SOIL)
+            
+        if (event.getTo() == Material.DIRT && event.getBlock().getType() == Material.SOIL)
             event.setCancelled(true);
     }
 }
